@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include ("../partials/header.ejs") %>
+</head>
+
+<body>
+
+  <%- include ("../partials/nav.ejs") %>
+
+  <main>
+    <div>
+      <a href="/">Go Back</a>
+      <span>Name: <%= row.name %></span>
+      <span>Color: <%= row.color %></span>
+      <span>Width: <%= row.width %></span>
+      <span>Height: <%= row.height %></span>
+    </div>
+  </main>
+</body>
+</html>
