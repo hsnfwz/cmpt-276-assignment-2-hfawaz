@@ -1,7 +1,41 @@
-#rectangle-container {
-  width: 400px;
-  height: 400px;
-  background-color: rgb(247, 247, 247);
+:root {
+  --black-color: #000;
+  --white-color: #fff;
+  --gray-color-1: #FAFAFA;
+  --gray-color-2: #EEEEEE;
+  --blue-color-1: #1E88E5;
+  --blue-color-2: #1565C0;
+  --green-color-1: #43A047;
+  --green-color-2: #2E7D32;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 2em;
+}
+
+h1 {
+  padding: 1em;
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+#rectangle-canvas {
+  width: 25em;
+  height: 25em;
+  background-color: var(--gray-color-1);
   overflow: auto;
 }
 
@@ -10,4 +44,91 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+#rectangles-container {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.rectangle-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: all 0.3s;
+  /* border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em; */
+  border-radius: 0.5em;
+}
+
+.rectangle-container > * {
+  flex-grow: 1;
+}
+
+.rectangle-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white-color);
+  background-color: var(--blue-color-1);
+  padding: 1em;
+  transition: all 0.3s;
+  border-radius: 0.5em;
+  margin: 1em;
+}
+
+.rectangle-link:hover {
+  background-color: var(--blue-color-2);
+}
+
+.rectangle-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#add-rectangle-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border-radius: 0.5em;
+  border: solid 0.125em var(--gray-color-1);
+  padding: 1em;
+}
+
+#add-rectangle-form > * {
+  flex-grow: 1;
+}
+
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.form-input-container > * {
+  flex-grow: 1;
+}
+
+#form-add-button {
+  border: none;
+  padding: 1em;
+  background-color: var(--green-color-1);
+  transition: all 0.3s;
+  color: var(--white-color);
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+
+#form-add-button:hover {
+  background-color: var(--green-color-2);
+}
+
+input[type=text],
+input[type=number] {
+  padding: 1em;
+  background-color: var(--gray-color-1);
+  border: none;
+  border-radius: 0.5em;
 }
