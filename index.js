@@ -53,7 +53,7 @@ app.post('/rectangles', (req, res) => {
 
   pool.query(poolQuery, (err, result) => {
     if (err) console.log(err);
-    res.redirect('/rectangles'); // is there a better way to refresh the page?
+    res.redirect('/rectangles');
   });
 });
 
@@ -73,4 +73,51 @@ app.get('/rectangles/:id', (req, res) => { // handles reading, updating, and del
   });
 });
 
+app.post('/rectangles/:id/update', (req, res) => {
+  console.log('[GET]:', '/rectangles/:id/update');
+
+  const id = req.params.id;
+
+  const {
+    name,
+    color,
+    width,
+    height,
+  } = req.body;
+
+  const poolQuery = `UPDATE rectangle SET (name, color, width, height) = ('${name}', '${color}', '${width}','${height}') WHERE id='${id}'`;
+
+  pool.query(poolQuery, (err, result) => {
+    if (err) console.log(err);
+    res.redirect(`/rectangles/${id}`);
+  });
+});
+
+app.get('/rectangles/:id/delete', (req, res) => {
+  console.log('[GET]:', '/rectangles/:id/delete');
+
+  const id = req.params.id;
+
+  const poolQuery = `DELETE FROM rectangle WHERE id='${id}'`;
+
+  pool.query(poolQuery, (err, result) => {
+    if (err) console.log(err);
+    res.redirect('/rectangles');
+  });
+});
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+/* 
+  need to do error handling
+
+    - what happens when the user goes to a page that does not exist?
+
+    - what happens when the user passes an id into the url that does not exist?
+
+    - what happens when the user submits add rectangle with no/partial inputs?
+
+    - what happens when the user submits update rectangle with no/partial inputs?
+
+  need to do layout and styling
+*/

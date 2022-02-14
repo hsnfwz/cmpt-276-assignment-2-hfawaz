@@ -19,24 +19,30 @@
 
     <h1>Update Rectangle</h1>
 
-    <form id="update-rectangle-form" action="/rectangles/:id" method="get">
+    <form id="update-rectangle-form" action="/rectangles/<%= row.id %>/update" method="post">
       <div>
         <label for="name">Name</label>
-        <input id="name" type="text" name="name" autocomplete="off" />
+        <input id="name" type="text" name="name" autocomplete="off" value="<%= row.name %>" />
       </div>
       <div>
         <label for="color">Color</label>
-        <input id="color" type="text" name="color" autocomplete="off" />
+        <input id="color" type="text" name="color" autocomplete="off" value="<%= row.color %>" />
       </div>
       <div>
         <label for="width">Width</label>
-        <input id="width" type="number" min="0" name="width" autocomplete="off" />
+        <input id="width" type="number" min="0" name="width" autocomplete="off" value="<%= row.width %>" />
       </div>
       <div>
         <label for="height">Height</label>
-        <input id="height" type="number" min="0" name="height" autocomplete="off" />
+        <input id="height" type="number" min="0" name="height" autocomplete="off" value="<%= row.height %>" />
       </div>
-      <input type="submit" form="update-rectangle-form" />
+      <input type="submit" form="update-rectangle-form" value="UPDATE" />
+    </form>
+
+    <h1>Delete Rectangle</h1>
+
+    <form id="delete-rectangle-form" action="/rectangles/<%= row.id %>/delete" method="get">
+      <input type="submit" form="delete-rectangle-form" value="DELETE" />
     </form>
   </main>
 </body>
