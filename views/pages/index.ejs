@@ -11,13 +11,35 @@
   <main>
     <% rows.forEach(function(row) { %>
       <div>
-        <a href="/<%= row.id %>">View</a>
+        <a href="/rectangles/<%= row.id %>">View</a>
         <span>Name: <%= row.name %></span>
         <span>Color: <%= row.color %></span>
         <span>Width: <%= row.width %></span>
         <span>Height: <%= row.height %></span>
       </div>
     <% }); %>
+
+    <h1>Add Rectangle</h1>
+
+    <form id="add-rectangle-form" action="/rectangles" method="post">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" autocomplete="off" />
+      </div>
+      <div>
+        <label for="color">Color</label>
+        <input id="color" type="text" name="color" autocomplete="off" />
+      </div>
+      <div>
+        <label for="width">Width</label>
+        <input id="width" type="number" min="0" name="width" autocomplete="off" />
+      </div>
+      <div>
+        <label for="height">Height</label>
+        <input id="height" type="number" min="0" name="height" autocomplete="off" />
+      </div>
+      <input type="submit" form="add-rectangle-form" />
+    </form>
   </main>
 </body>
 </html>

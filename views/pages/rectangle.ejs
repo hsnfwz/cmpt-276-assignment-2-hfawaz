@@ -10,12 +10,34 @@
 
   <main>
     <div>
-      <a href="/">Go Back</a>
+      <a href="/rectangles">Go Back</a>
       <span>Name: <%= row.name %></span>
       <span>Color: <%= row.color %></span>
       <span>Width: <%= row.width %></span>
       <span>Height: <%= row.height %></span>
     </div>
+
+    <h1>Update Rectangle</h1>
+
+    <form id="update-rectangle-form" action="/rectangles/:id" method="get">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" autocomplete="off" />
+      </div>
+      <div>
+        <label for="color">Color</label>
+        <input id="color" type="text" name="color" autocomplete="off" />
+      </div>
+      <div>
+        <label for="width">Width</label>
+        <input id="width" type="number" min="0" name="width" autocomplete="off" />
+      </div>
+      <div>
+        <label for="height">Height</label>
+        <input id="height" type="number" min="0" name="height" autocomplete="off" />
+      </div>
+      <input type="submit" form="update-rectangle-form" />
+    </form>
   </main>
 </body>
 </html>
