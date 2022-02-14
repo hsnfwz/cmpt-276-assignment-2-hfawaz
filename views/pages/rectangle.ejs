@@ -9,12 +9,36 @@
   <%- include ("../partials/nav.ejs") %>
 
   <main>
+    <h1>Rectangle</h1>
+    <div id="rectangle-container">
+      <div id="rectangle">
+        <script>
+          const rowColor = <%- JSON.stringify(row.color) %>;
+          const rowWidth = <%- JSON.stringify(row.width) %>;
+          const rowHeight = <%- JSON.stringify(row.height) %>;
+          const rectangleElement = document.querySelector('#rectangle');
+          rectangleElement.style.backgroundColor = rowColor;
+          rectangleElement.style.width = `${rowWidth}px`;
+          rectangleElement.style.height = `${rowHeight}px`;
+        </script>
+      </div>
+    </div>
+
+    <h1>Details</h1>
     <div>
       <a href="/rectangles">Go Back</a>
-      <span>Name: <%= row.name %></span>
-      <span>Color: <%= row.color %></span>
-      <span>Width: <%= row.width %></span>
-      <span>Height: <%= row.height %></span>
+      <div>
+        <p>Name: <%= row.name %></p>
+      </div>
+      <div>
+        <p>Color (CSS): <%= row.color %></p>
+      </div>
+      <div>
+        <p>Width (px): <%= row.width %></p>
+      </div>
+      <div>
+        <p>Height (px): <%= row.height %></p>
+      </div>
     </div>
 
     <h1>Update Rectangle</h1>
@@ -25,15 +49,15 @@
         <input id="name" type="text" name="name" autocomplete="off" value="<%= row.name %>" />
       </div>
       <div>
-        <label for="color">Color</label>
+        <label for="color">Color (CSS)</label>
         <input id="color" type="text" name="color" autocomplete="off" value="<%= row.color %>" />
       </div>
       <div>
-        <label for="width">Width</label>
+        <label for="width">Width (px)</label>
         <input id="width" type="number" min="0" name="width" autocomplete="off" value="<%= row.width %>" />
       </div>
       <div>
-        <label for="height">Height</label>
+        <label for="height">Height (px)</label>
         <input id="height" type="number" min="0" name="height" autocomplete="off" value="<%= row.height %>" />
       </div>
       <input type="submit" form="update-rectangle-form" value="UPDATE" />

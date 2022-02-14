@@ -1,0 +1,13 @@
+#rectangle-container {
+  width: 400px;
+  height: 400px;
+  background-color: rgb(247, 247, 247);
+  overflow: auto;
+}
+
+#rectangle {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -101,6 +101,10 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
   need to do layout and styling
   need to add additional creative attributes to the table that the user can edit
+  - isRounded (bool)
+  - border color (char)
+  - showShadow (bool)
+  - ...
 
   look into SSL stuff with Heroku and Postgres
 

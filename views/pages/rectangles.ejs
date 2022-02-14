@@ -13,9 +13,9 @@
       <div>
         <a href="/rectangles/<%= row.id %>">View</a>
         <span>Name: <%= row.name %></span>
-        <span>Color: <%= row.color %></span>
-        <span>Width: <%= row.width %></span>
-        <span>Height: <%= row.height %></span>
+        <span>Color (CSS): <%= row.color %></span>
+        <span>Width (px): <%= row.width %></span>
+        <span>Height (px): <%= row.height %></span>
       </div>
     <% }); %>
 
@@ -27,15 +27,15 @@
         <input id="name" type="text" name="name" autocomplete="off" />
       </div>
       <div>
-        <label for="color">Color</label>
+        <label for="color">Color (CSS)</label>
         <input id="color" type="text" name="color" autocomplete="off" />
       </div>
       <div>
-        <label for="width">Width</label>
+        <label for="width">Width (px)</label>
         <input id="width" type="number" min="0" name="width" autocomplete="off" />
       </div>
       <div>
-        <label for="height">Height</label>
+        <label for="height">Height (px)</label>
         <input id="height" type="number" min="0" name="height" autocomplete="off" />
       </div>
       <input type="submit" form="add-rectangle-form" />
