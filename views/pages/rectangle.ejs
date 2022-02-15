@@ -8,8 +8,7 @@
 
   <%- include ("../partials/nav.ejs") %>
 
-  <main>
-    <h1>Rectangle</h1>
+  <main class="main-container">
     <div id="rectangle-canvas">
       <div id="rectangle">
         <script>
@@ -23,50 +22,43 @@
         </script>
       </div>
     </div>
-
-    <h1>Details</h1>
-    <div>
-      <a href="/rectangles">Go Back</a>
-      <div>
-        <p>Name: <%= row.name %></p>
-      </div>
-      <div>
-        <p>Color (CSS): <%= row.color %></p>
-      </div>
-      <div>
-        <p>Width (px): <%= row.width %></p>
-      </div>
-      <div>
-        <p>Height (px): <%= row.height %></p>
-      </div>
-    </div>
-
-    <h1>Update Rectangle</h1>
-
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Color (CSS)</th>
+        <th>Width (px)</th>
+        <th>Height (px)</th>
+      </tr>
+      <tr>
+        <td><%= row.name %></td>
+        <td><%= row.color %></td>
+        <td><%= row.width %></td>
+        <td><%= row.height %></td>
+      </tr>
+    </table>
     <form id="update-rectangle-form" action="/rectangles/<%= row.id %>/update" method="post">
-      <div>
+      <h2>Update Rectangle</h2>
+      <div class="form-input-container">
         <label for="name">Name</label>
-        <input id="name" type="text" name="name" autocomplete="off" value="<%= row.name %>" />
+        <input id="name" type="text" name="name" autocomplete="off" value="<%= row.name %>" required maxlength="255" />
       </div>
-      <div>
+      <div class="form-input-container">
         <label for="color">Color (CSS)</label>
-        <input id="color" type="text" name="color" autocomplete="off" value="<%= row.color %>" />
+        <input id="color" type="text" name="color" autocomplete="off" value="<%= row.color %>" required maxlength="255" />
       </div>
-      <div>
+      <div class="form-input-container">
         <label for="width">Width (px)</label>
-        <input id="width" type="number" min="0" name="width" autocomplete="off" value="<%= row.width %>" />
+        <input id="width" type="number" min="1" name="width" autocomplete="off" value="<%= row.width %>" required />
       </div>
-      <div>
+      <div class="form-input-container">
         <label for="height">Height (px)</label>
-        <input id="height" type="number" min="0" name="height" autocomplete="off" value="<%= row.height %>" />
+        <input id="height" type="number" min="1" name="height" autocomplete="off" value="<%= row.height %>" required />
       </div>
-      <input type="submit" form="update-rectangle-form" value="UPDATE" />
+      <input id="form-update-button" type="submit" value="Update" form="update-rectangle-form" />
     </form>
-
-    <h1>Delete Rectangle</h1>
-
     <form id="delete-rectangle-form" action="/rectangles/<%= row.id %>/delete" method="get">
-      <input type="submit" form="delete-rectangle-form" value="DELETE" />
+      <h2>Delete Rectangle</h2>
+      <input id="form-delete-button" type="submit" form="delete-rectangle-form" value="Delete" />
     </form>
   </main>
 </body>

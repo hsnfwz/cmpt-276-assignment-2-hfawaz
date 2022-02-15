@@ -34,7 +34,8 @@ app.get('/rectangles', (req, res) => {
 
 app.post('/rectangles', (req, res) => {
   const { name, color, width, height } = req.body;
-  const poolQuery = `INSERT INTO rectangle (name, color, width, height) VALUES ('${name}', '${color}', '${width}', '${height}')`;
+
+  const poolQuery = `INSERT INTO rectangle (name, color, width, height) VALUES ('${name}', '${color.toLowerCase()}', '${width}', '${height}')`;
 
   pool.query(poolQuery, (err, result) => {
     if (err) console.log(err);
@@ -63,7 +64,8 @@ app.post('/rectangles/:id/update', (req, res) => {
 
   if (!isNaN(id)) {
     const { name, color, width, height } = req.body;
-    const poolQuery = `UPDATE rectangle SET (name, color, width, height) = ('${name}', '${color}', '${width}','${height}') WHERE id='${id}'`;
+
+    const poolQuery = `UPDATE rectangle SET (name, color, width, height) = ('${name}', '${color.toLowerCase()}', '${width}','${height}') WHERE id='${id}'`;
   
     pool.query(poolQuery, (err, result) => {
       if (err) console.log(err);
@@ -93,20 +95,19 @@ app.get('*', (req, res) => {
   res.render('pages/error');
 });
 
+// Listen
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-/* 
-  - what happens when the user submits add rectangle with no/partial inputs?
-  - what happens when the user submits update rectangle with no/partial inputs?
-
-  need to do layout and styling
+/*
   need to add additional creative attributes to the table that the user can edit
   - isRounded (bool)
   - border color (char)
   - showShadow (bool)
   - ...
 
-  look into SSL stuff with Heroku and Postgres
-
-  question: can the UI look anyway we want? does it need to follow the look that is on canvas?
+  todo: look into SSL stuff with Heroku and Postgres
+  todo: update canvas layout
+  todo: display something on homepage
+  todo: update layout to handle very long names
+  todo: polish forms
 */
