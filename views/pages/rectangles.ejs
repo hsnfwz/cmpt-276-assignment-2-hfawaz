@@ -9,10 +9,6 @@
   <%- include ("../partials/nav.ejs") %>
 
   <main class="main-container">
-    <!-- <button type="button" id="add-button" onclick="document.querySelector('#add-rectangle-form').style.display = 'flex'">
-      Add Rectangle
-    </button> -->
-    <!-- <form style="display:none" id="add-rectangle-form" action="/rectangles" method="post"> -->
     <form id="add-rectangle-form" action="/rectangles" method="post">
       <h2>Add Rectangle</h2>
       <div class="form-input-container">
@@ -32,7 +28,6 @@
         <input id="height" type="number" min="1" name="height" autocomplete="off" required />
       </div>
       <input id="form-add-button" type="submit" value="Add" form="add-rectangle-form" />
-      <!-- <input id="form-add-button" type="submit" value="Add" form="add-rectangle-form" onsubmit="this.style.display = 'none'" /> -->
     </form>
     <div id="rectangles-container">
       <% rows.forEach(function(row) { %>

@@ -3,12 +3,9 @@
   --white-color: #fff;
   --gray-color-1: #FAFAFA;
   --gray-color-2: #EEEEEE;
-  --blue-color-1: #1E88E5;
-  --blue-color-2: #1565C0;
-  --green-color-1: #43A047;
-  --green-color-2: #2E7D32;
-  --red-color-1: #E53935;
-  --red-color-2: #C62828;
+  --blue-color: #1E88E5;
+  --green-color: #43A047;
+  --red-color: #E53935;
 }
 
 * {
@@ -41,7 +38,7 @@ h1, h2 {
   width: 100%;
   height: 25em;
   border-radius: 0.5em;
-  background-color: var(--gray-color-1);
+  border: solid 0.125em var(--black-color);
   overflow: auto;
 }
 
@@ -77,7 +74,7 @@ h1, h2 {
   align-items: center;
   text-decoration: none;
   color: var(--white-color);
-  background-color: var(--blue-color-1);
+  background-color: var(--blue-color);
   padding: 1em;
   transition: all 0.3s;
   border-radius: 0.5em;
@@ -85,7 +82,7 @@ h1, h2 {
 }
 
 .rectangle-link:hover {
-  background-color: var(--blue-color-2);
+  filter: brightness(85%);
 }
 
 .rectangle-container:hover {
@@ -99,7 +96,7 @@ h1, h2 {
   flex-direction: column;
   gap: 2em;
   border-radius: 0.5em;
-  border: solid 0.125em var(--gray-color-1);
+  border: solid 0.125em var(--black-color);
   padding: 1em;
 }
 
@@ -123,7 +120,7 @@ h1, h2 {
 #form-delete-button {
   border: none;
   padding: 1em;
-  background-color: var(--green-color-1);
+  background-color: var(--green-color);
   transition: all 0.3s;
   color: var(--white-color);
   cursor: pointer;
@@ -132,28 +129,27 @@ h1, h2 {
 
 #form-add-button:hover,
 #form-update-button:hover {
-  background-color: var(--green-color-2);
+  filter: brightness(85%);
 }
 
 #form-delete-button {
-  background-color: var(--red-color-1);
+  background-color: var(--red-color);
 }
 
 #form-delete-button:hover {
-  background-color: var(--red-color-2);
+  filter: brightness(85%);
 }
 
 input[type=text],
 input[type=number] {
   padding: 1em;
-  background-color: var(--gray-color-1);
-  border: none;
+  border: solid 0.125em black;
   border-radius: 0.5em;
   box-sizing: border-box;
 }
 
 table, th, td {
-  border: solid 0.125em var(--gray-color-1);
+  border: solid 0.125em var(--black-color);
   border-collapse: collapse;
   text-align: left;
   padding: 1em;
@@ -163,7 +159,7 @@ table, th, td {
   border: none;
   text-decoration: none;
   color: var(--white-color);
-  background-color: var(--green-color-1);
+  background-color: var(--green-color);
   padding: 1em;
   transition: all 0.3s;
   cursor: pointer;
@@ -171,13 +167,13 @@ table, th, td {
 }
 
 #add-button:hover {
-  background-color: var(--green-color-2);
+  filter: brightness(85%);
 }
 
 #nav-container {
   display: flex;
   justify-content: space-between;
-  background-color: var(--gray-color-1);
+  border: solid 0.125em var(--black-color);
 }
 
 #nav-items {

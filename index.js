@@ -104,18 +104,11 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 /*
-  need to add additional creative attributes to the table that the user can edit
-  - isRounded (bool)
-  - border color (char)
-  - showShadow (bool)
-  - ...
-
-  todo: look into SSL stuff with Heroku and Postgres
+  todo: need to add additional creative attributes to the table that the user can edit
   todo: update canvas layout
   todo: display something on homepage
   todo: update layout to handle very long names
   todo: polish forms
   todo: fix back button where updating or deleting will push to history an additional url, I need to make it so that instead of redirecting i replace history instead, otherwise we will need to refetch docs and rerender the page
-  todo: update colors to be a bit darker expecially the forms since laptop screen has a hard time showing these colors (compared to my desktop monitor)
-  todo: heroku not working because of SSL - add environment variable to heroku app
+  todo: update colors to be a bit darker especially the forms since laptop screen has a hard time showing these colors (compared to my desktop monitor)
 */
