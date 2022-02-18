@@ -68,26 +68,6 @@ app.post('/add-rectangle', (req, res) => {
   });
 });
 
-app.get('/rectangles', (req, res) => {
-  const poolQuery = 'SELECT * FROM rectangle';
-
-  pool.query(poolQuery, (err, result) => {
-    if (err) console.log(err);
-    else res.render('pages/rectangles', { rows: result.rows });
-  });
-});
-
-app.post('/rectangles', (req, res) => {
-  const { name, color, width, height } = req.body;
-
-  const poolQuery = `INSERT INTO rectangle (name, color, width, height) VALUES ('${name}', '${color.toLowerCase()}', '${width}', '${height}')`;
-
-  pool.query(poolQuery, (err, result) => {
-    if (err) console.log(err);
-    else res.redirect('/rectangles');
-  });
-});
-
 app.post('/rectangles/:id/update', (req, res) => {
   const id = req.params.id;
 
