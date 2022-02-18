@@ -37,17 +37,6 @@ app.get('/rectangles', (req, res) => {
   });
 });
 
-app.post('/rectangles', (req, res) => {
-  const { name, color, width, height } = req.body;
-
-  const poolQuery = `INSERT INTO rectangle (name, color, width, height) VALUES ('${name}', '${color.toLowerCase()}', '${width}', '${height}')`;
-
-  pool.query(poolQuery, (err, result) => {
-    if (err) console.log(err);
-    else res.redirect('/rectangles');
-  });
-});
-
 app.get('/rectangles/:id', (req, res) => {
   const id = req.params.id;
 
@@ -62,6 +51,41 @@ app.get('/rectangles/:id', (req, res) => {
   } else {
     res.render('pages/error');
   }
+});
+
+app.get('/add-rectangle', (req, res) => {
+  res.render('pages/addRectangle');
+});
+
+app.post('/add-rectangle', (req, res) => {
+  const { name, color, width, height } = req.body;
+
+  const poolQuery = `INSERT INTO rectangle (name, color, width, height) VALUES ('${name}', '${color.toLowerCase()}', '${width}', '${height}')`;
+
+  pool.query(poolQuery, (err, result) => {
+    if (err) console.log(err);
+    else res.redirect('/add-rectangle');
+  });
+});
+
+app.get('/rectangles', (req, res) => {
+  const poolQuery = 'SELECT * FROM rectangle';
+
+  pool.query(poolQuery, (err, result) => {
+    if (err) console.log(err);
+    else res.render('pages/rectangles', { rows: result.rows });
+  });
+});
+
+app.post('/rectangles', (req, res) => {
+  const { name, color, width, height } = req.body;
+
+  const poolQuery = `INSERT INTO rectangle (name, color, width, height) VALUES ('${name}', '${color.toLowerCase()}', '${width}', '${height}')`;
+
+  pool.query(poolQuery, (err, result) => {
+    if (err) console.log(err);
+    else res.redirect('/rectangles');
+  });
 });
 
 app.post('/rectangles/:id/update', (req, res) => {
@@ -100,15 +124,5 @@ app.get('*', (req, res) => {
   res.render('pages/error');
 });
 
-// Listen
+// Server
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
-
-/*
-  todo: need to add additional creative attributes to the table that the user can edit
-  todo: update canvas layout
-  todo: display something on homepage
-  todo: update layout to handle very long names
-  todo: polish forms
-  todo: fix back button where updating or deleting will push to history an additional url, I need to make it so that instead of redirecting i replace history instead, otherwise we will need to refetch docs and rerender the page
-  todo: update colors to be a bit darker especially the forms since laptop screen has a hard time showing these colors (compared to my desktop monitor)
-*/
